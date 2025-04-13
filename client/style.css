@@ -9,10 +9,23 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Rubik Mono One", monospace;
   font-style: normal;
   font-optical-sizing: auto;
 }
+
+/* .archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+} */
+
+.rubik-mono-one-regular {
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
 
 @keyframes googleGradient {
   0% {
@@ -33,11 +46,17 @@ body {
   padding: 0;
   background: #f7f9fb;
   color: #333;
-  animation: googleThemeCycle 30s linear infinite;
-  animation-fill-mode: forwards;
-  font-family: "Cormorant Garamond", serif;
-  font-style: normal;
-  font-optical-sizing: auto;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+header .slogan {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  font-weight: 300;
 }
 
 
@@ -55,19 +74,58 @@ header h1 {
   font-style: italic;
   margin-top: 0.5rem;
   color: #fbfdff;
+  /* Slightly lighter for contrast */
 }
 
-
-/* === Imported Header Font === */
-.cormorant-garamond-font {
-  font-family: "Cormorant Garamond", serif;
-  font-optical-sizing: auto;
-  font-weight: 100px;
-  font-style: normal;
+.wrapper {
+  background-color: #e1e2e2;
+  height: 350px; /* taller for large photos */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0;
 }
 
+.wrapper .track {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
 
-/* === Main Content === */
+.photo {
+  flex-shrink: 0;
+  width: 800px; /* match the photo width */
+  height: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smooth horizontal scroll */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.gemini-logo img {
+  height: 40px;
+  margin-top: 1rem;
+}
+
+/* Main Container */
 main {
   padding: 2rem 1rem;
   max-width: 800px;
@@ -93,7 +151,6 @@ main {
 /* === Textarea === */
 textarea {
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
   height: 120px;
   font-size: 1rem;
