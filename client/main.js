@@ -69,3 +69,6 @@ document.getElementById("modeSelect").addEventListener("change", (e) => {
   document.getElementById("careerFields").style.display = mode === "career" ? "block" : "none";
 });
 
+
+
+

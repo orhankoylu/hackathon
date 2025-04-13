@@ -1,26 +1,29 @@
-/* === Theme Animation Variables === */
-@keyframes googleGradient {
-  0% {
-    background: linear-gradient(135deg, #4285f4, #34a853);
-  }
-  25% {
-    background: linear-gradient(135deg, #34a853, #fbbc05);
-  }
-  50% {
-    background: linear-gradient(135deg, #fbbc05, #ea4335);
-  }
-  75% {
-    background: linear-gradient(135deg, #ea4335, #673ab7);
-  }
-  100% {
-    background: linear-gradient(135deg, #4285f4, #34a853);
-  }
+
+/* === Header === */
+header {
+  background: linear-gradient(270deg, #4285f4, #34a853, #fbbc05, #ea4335, #673ab7, #4285f4);
+  background-size: 1200% 1200%;
+  animation: googleGradient 30s ease infinite;
+  background-size: 400% 400%;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
 }
 
-header {
-  animation: googleGradient 30s ease-in-out infinite;
-  background-size: 400% 400%;
-  transition: background 1s ease-in-out;
+@keyframes googleGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* === Global Styling === */
@@ -32,23 +35,19 @@ body {
   color: #333;
   animation: googleThemeCycle 30s linear infinite;
   animation-fill-mode: forwards;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
 }
 
-/* === Header === */
-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  background-size: 400% 400%;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 1s ease;
-}
 
 header h1 {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
 }
 
 .slogan {
@@ -57,6 +56,16 @@ header h1 {
   margin-top: 0.5rem;
   color: #fbfdff;
 }
+
+
+/* === Imported Header Font === */
+.cormorant-garamond-font {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 100px;
+  font-style: normal;
+}
+
 
 /* === Main Content === */
 main {
@@ -95,6 +104,62 @@ textarea {
   resize: vertical;
 }
 
+/* === Generate Pathway Button === */
+#generateBtn {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: black;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+  /* transition: background 0.3s ease, transform 0.2s ease; */
+}
+
+/* === Rotating Stock Photos === */
+.wrapper {
+  background-color: #e1e2e2;
+  height: 350px; /* taller for large photos */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0;
+}
+
+.wrapper .track {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+}
+
+.photo {
+  flex-shrink: 0;
+  width: 800px; /* match the photo width */
+  height: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smooth horizontal scroll */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* === Dropdown and Input Fields === */
 label,
 select,
@@ -128,7 +193,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, transform 0.2s ease;
+  /* transition: background 0.3s ease, transform 0.2s ease; */
 }
 
 button:hover {
