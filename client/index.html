@@ -48,10 +48,10 @@
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    
-    // Initialize Firestore
-    const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore and expose it globally
+window.db = getFirestore(app);
 
     // Now you can use `db` to interact with Firestore
   </script>
