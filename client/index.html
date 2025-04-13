@@ -13,6 +13,44 @@
     <p>Powered by Google Gemini</p>
   </header>
 
+  <div class="wrapper">
+    <div class="track">
+      <div class="photo"><img src="stock-photos/MLTM-908_0252-Edit.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/PBAF-10940_5047-2x3-1.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/Shutterstock_283909124.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/WashU-ombuds-.gif" alt=""></div>
+      <!-- Duplicate for smooth looping -->
+      <div class="photo"><img src="stock-photos/MLTM-908_0252-Edit.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/PBAF-10940_5047-2x3-1.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/Shutterstock_283909124.jpg" alt=""></div>
+      <div class="photo"><img src="stock-photos/WashU-ombuds-.gif" alt=""></div>
+    </div>
+  </div>
+  
+
+  <!-- <script>
+    const images = [
+      'stock-photos/MLTM-908_0252-Edit.jpg',
+      'stock-photos/PBAF-10940_5047-2x3-1.jpg',
+      'stock-photos/undergrad-header-min.jpg',
+      'stock-photos/WashU-ombuds-.gif',
+    ];
+  
+    let index = 0;
+    const banner = document.getElementById('photoBanner');
+  
+    function rotateImage() {
+      banner.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+  
+    // Initial load
+    rotateImage();
+  
+    // Rotate every 5 seconds
+    setInterval(rotateImage, 5000);
+  </script> --> 
+
   <main>
     <section class="input-section">
       <h2>Tell us about yourself</h2>
@@ -29,6 +67,32 @@
   <footer>
     <p>&copy; 2025 G.R.O.W.T.H Project – DevFest Hackathon</p>
   </footer>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the necessary Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    // Firebase configuration object
+    const firebaseConfig = {
+      apiKey: "AIzaSyD38orp8LZbf8ItbXfbrgUuSanXB1WI-xQ",
+      authDomain: "growth-service-account.firebaseapp.com",
+      projectId: "growth-service-account",
+      storageBucket: "growth-service-account.firebasestorage.app",
+      messagingSenderId: "792241677880",
+      appId: "1:792241677880:web:12465b8d7a98f3dedb68cd",
+      measurementId: "G-CC23JLBZ8P"
+    };
+
+    // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore and expose it globally
+window.db = getFirestore(app);
+
+    // Now you can use `db` to interact with Firestore
+  </script>
 
   <script src="main.js"></script>
 </body>
