@@ -1,81 +1,126 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f9fb;
-    color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f9fb;
+  color: #333;
+}
+
+/* Enhanced Header */
+@keyframes googleGradient {
+  0% {
+    background: linear-gradient(135deg, #4285f4, #34a853);
   }
-  
-  header {
-    background: #4a90e2;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
+  25% {
+    background: linear-gradient(135deg, #34a853, #fbbc05);
   }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+  50% {
+    background: linear-gradient(135deg, #fbbc05, #ea4335);
   }
-  
-  .slogan {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-top: 0.5rem;
+  75% {
+    background: linear-gradient(135deg, #ea4335, #673ab7); /* a Gemini-style purple */
   }
-  
-  main {
-    padding: 2rem 1rem;
-    max-width: 800px;
-    margin: auto;
+  100% {
+    background: linear-gradient(135deg, #4285f4, #34a853); /* back to start */
   }
-  
-  .input-section,
-  .output-section {
-    background: white;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-  
-  textarea {
-    width: 100%;
-    height: 120px;
-    font-size: 1rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    resize: vertical;
-  }
-  
-  button {
-    margin-top: 1rem;
-    background: #4a90e2;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #3b7dc9;
-  }
-  
-  #resultBox {
-    margin-top: 1rem;
-    background: #eef3f9;
-    padding: 1rem;
-    border-radius: 8px;
-    min-height: 80px;
-  }
-  
-  footer {
-    text-align: center;
-    font-size: 0.85rem;
-    padding: 1rem;
-    color: #777;
-  }
+}
+
+header {
+  animation: googleGradient 30s ease-in-out infinite;
+  background: linear-gradient(135deg, #4a90e2, #4285f4);
+  background-size: 400% 400%;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.slogan {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #fbfdff;
+  /* Slightly lighter for contrast */
+}
+
+/* Main Container */
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Input and Output Sections */
+.input-section,
+.output-section {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Text Area */
+textarea {
+  width: 100%;
+  height: 120px;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+/* Buttons */
+button {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #4a90e2, #4285f4);
+  /* Gradient matches header */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  /* Adds subtle depth */
+  transition: background 0.3s ease, transform 0.2s ease;
+  /* Smooth hover effect */
+}
+
+button:hover {
+  background: #3367d6;
+  /* Darker shade for hover effect */
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+/* Result Box */
+#resultBox {
+  margin-top: 1rem;
+  background: #eef3f9;
+  padding: 1rem;
+  border-radius: 8px;
+  min-height: 80px;
+  border-left: 4px solid #4a90e2;
+  /* Visual cue for result */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 1rem;
+  color: #777;
+  background: linear-gradient(135deg, #eef3f9, #f7f9fb);
+  /* Subtle gradient */
+  border-top: 1px solid #ddd;
+  /* Defines footer separation */
+}
