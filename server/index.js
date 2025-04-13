@@ -13,7 +13,7 @@ const openai = new OpenAI({
 });
 
 app.post("/api/suggest", async (req, res) => {
-  const { interests } = req.body;
+  const { interests } = req.body; 
 
   const prompt = `Suggest 3 personalized career paths and potential college majors for someone who says: "${interests}". Include a short explanation for each.`;
 

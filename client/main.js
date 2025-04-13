@@ -7,7 +7,7 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
     return;
   }
 
-  resultBox.textContent = "Thinking... ✨";
+  resultBox.textContent = "Thinking... ✨"; 
 
   try {
     const response = await fetch("http://localhost:5000/api/suggest", {
