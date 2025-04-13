@@ -33,11 +33,16 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
   
 
   try {
-    const response = await fetch("http://localhost:5500/api/suggest", {
+    const response = await fetch("/api/suggest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
+    if (!response.ok) {
+      const errorText = await response.text(); // Shows backend error message
+      throw new Error(`Server responded with ${response.status}: ${errorText}`);
+    }
+    
 
     const data = await response.json();
     const suggestion = data.suggestion || "No suggestion returned.";
@@ -59,8 +64,9 @@ document.getElementById("generateBtn").addEventListener("click", async () => {
     console.log("Saved to Firestore!");
   } catch (error) {
     console.error("Error:", error);
-    resultBox.textContent = "Something went wrong. Please try again.";
+    resultBox.textContent = `Something went wrong: ${error.message}`;
   }
+  
 });
 
 document.getElementById("modeSelect").addEventListener("change", (e) => {

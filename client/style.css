@@ -67,7 +67,7 @@ header h1 {
   margin: 0;
   font-size: 2.5rem;
   font-weight: bold;
-  font-family:  "Archivo Black", sans-serif;
+  font-family:  'Segoe UI', sans-serif;
   font-style: normal;
   font-optical-sizing: auto;
 }
@@ -75,6 +75,7 @@ header h1 {
 .slogan {
   font-size: 1.2rem;
   font-style: italic;
+  font-family: 'Segoe UI', sans-serif;
   margin-top: 0.5rem;
   color: #fbfdff;
   /* Slightly lighter for contrast */

@@ -5,8 +5,8 @@ require("dotenv").config();
 const { GoogleGenAI } = require("@google/genai");
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // ✅ Enables CORS
+app.use(express.json()); // ✅ Parses JSON requests
 
 const genAI = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
@@ -18,7 +18,7 @@ app.post("/api/suggest", async (req, res) => {
   const prompt = `Suggest 3 personalized career paths and potential college majors for someone who says: "${interests}". Include a short explanation for each.`;
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // or "gemini-pro", etc.
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
@@ -31,6 +31,6 @@ app.post("/api/suggest", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
 });
