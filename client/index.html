@@ -16,8 +16,36 @@
     <section class="input-section">
       <h2>Tell us about yourself</h2>
       <textarea id="userInput" placeholder="What are your interests, passions, or goals?"></textarea>
+    
+      <!-- New Dropdown for Advising Type -->
+      <label for="modeSelect">Choose advising type:</label>
+      <select id="modeSelect">
+        <option value="career">Career Advising</option>
+        <option value="academic">Academic Advising</option>
+      </select>
+    
+      <!-- Conditionally visible Academic Fields -->
+      <div id="academicFields" style="display: none;">
+        <input id="year" placeholder="What year are you? (e.g., Freshman, Sophomore)" />
+        <input id="major" placeholder="Your major" />
+        <input id="minor" placeholder="Your minor (optional)" />
+        <input id="credits" type="number" placeholder="Credits completed" />
+        <input id="courses" placeholder="Completed courses (comma-separated)" />
+        <input id="aid" placeholder="Financial aid needs (optional)" />
+      </div>
+
+      <!-- Conditionally visible Career Fields -->
+      <div id="careerFields" style="display: none;">
+        <input id="level" placeholder="Education level (e.g., Bachelor's, Master's)" />
+        <input id="gpa" type="number" step="0.01" placeholder="Your GPA" />
+        <input id="experience" placeholder="Years or type of experience" />
+        <input id="industry" placeholder="Industry of interest (e.g., Healthcare, Tech)" />
+      </div>
+
+    
       <button id="generateBtn">Find My Path</button>
     </section>
+    
 
     <section class="output-section" id="outputSection">
       <h2>Your Personalized Pathway</h2>
@@ -30,5 +58,6 @@
   </footer>
 
   <script src="main.js"></script>
+
 </body>
 </html>

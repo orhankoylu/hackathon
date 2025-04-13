@@ -2,14 +2,14 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const { OpenAI } = require("openai"); // ✅ correct for openai@4.x+
+const { GoogleGenAI } = require("@google/genai");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // 🔐 from .env file
+const genAI = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 app.post("/api/suggest", async (req, res) => {
@@ -18,19 +18,15 @@ app.post("/api/suggest", async (req, res) => {
   const prompt = `Suggest 3 personalized career paths and potential college majors for someone who says: "${interests}". Include a short explanation for each.`;
 
   try {
-    const chatCompletion = await openai.chat.completions.create({
-      model: "gpt-4",
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-    });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // or "gemini-pro", etc.
 
-    res.json({ suggestion: chatCompletion.choices[0].message.content });
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+
+    res.json({ suggestion: text });
   } catch (error) {
-    console.error("OpenAI Error:", error);
+    console.error("Gemini Error:", error);
     res.status(500).json({ error: "Failed to get suggestions." });
   }
 });
